@@ -8,16 +8,16 @@ class TestMember < Minitest::Test
 
 def setup()
   @member0 = Member.new({
-    "first_name" => 'Ian',
-    "last_name" => 'Bone',
-    "premium" => 'TRUE',
-    "telephone" => '07884338083',
-    "email" => 'ianbone1 @googlemail.com',
-    "address_line_1" => '79 Hawthorn Crescent',
-    "address_line_2" => '',
-    "town" => 'Erskine',
-    "district" => 'Renfrewshire',
-    "post_code" => 'PA8 7BY'}
+    'first_name' => 'Ian',
+    'last_name' => 'Bone',
+    'premium' => 'TRUE',
+    'telephone' => '07884338083',
+    'email' => 'ianbone1 @googlemail.com',
+    'address_line_1' => '79 Hawthorn Crescent',
+    'address_line_2' => '',
+    'town' => 'Erskine',
+    'district' => 'Renfrewshire',
+    'post_code' => 'PA8 7BY'}
   )
 end
 
