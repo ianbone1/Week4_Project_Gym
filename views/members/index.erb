@@ -1,0 +1,46 @@
+<div class="members_table">
+<nav>
+
+  <nav>
+    <ul>
+      <li>
+          <a href="/members/create">Create New Member</a>
+      </li>
+    </ul>
+  </nav>
+  <table>
+    <thead>
+      <caption><h2>All Members</h2></caption>
+      <tr>
+      <th> </th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Premium</th>
+      <th>Address Line 1</th>
+      <th>Address Line 2</th>
+      <th>Town</th>
+      <th>District</th>
+      <th>Post Code</th>
+      <th>Telephone</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <th><a href="/members/<%= member.id %>/get">edit</a></th>
+          <td><%= member.id %></td>
+          <td><%= member.first_name.to_s + " " + member.last_name.to_s %></td>
+          <td><input type="radio" id="member<%= member.id %>" name="member<%= member.id %>" <%= ' checked ' if member.premium == 't' %> disabled></input></td>
+          <td><%= member.address_line_1 %></td>
+          <td><%= member.address_line_2 %></td>
+          <td><%= member.town %></td>
+          <td><%= member.district %></td>
+          <td><%= member.post_code %></td>
+          <td><%= member.telephone %></td>
+          <td><%= member.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
