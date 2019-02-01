@@ -1,0 +1,15 @@
+<h2>Update Class Details</h2>
+<div class="gymclasses">
+  <form method="post" action="/gymclasses/<%= @gymclass.id %>">
+    <div class="gymclasses">
+      <label for="name">Class Name:</label>
+        <input type="text" name="name" id="name" value="<%= @gymclass.name %>"/>
+      <label for="description">Description:</label>
+        <input type="text" name="description" id="description" value="<%= @gymclass.description %>"/>
+    </div>
+    <input type="submit" value="Update Class"/>
+  </form>
+  <form method="post" action="/gymclasses/<%= @gymclass.id %>/delete">
+    <input type="submit" value="Delete Class"/>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+<div class="gymclasses_table">
+<nav>
+
+  <nav>
+    <ul>
+      <li>
+          <a href="/gymclasses/create">Create New Class</a>
+      </li>
+    </ul>
+  </nav>
+  <table>
+    <thead>
+      <caption><h2>All Classes</h2></caption>
+      <tr>
+      <th> </th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @gymclasses.each do |gymclass| %>
+        <tr>
+          <th><a href="/gymclasses/<%= gymclass.id %>/get">edit</a></th>
+          <td><%= gymclass.id %></td>
+          <td><%= gymclass.name%></td>
+          <td><%= gymclass.description%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

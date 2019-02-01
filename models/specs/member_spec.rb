@@ -12,7 +12,7 @@ def setup()
     'last_name' => 'Bone',
     'premium' => 'TRUE',
     'telephone' => '07884338083',
-    'email' => 'ianbone1 @googlemail.com',
+    'email' => 'ianbone1@googlemail.com',
     'address_line_1' => '79 Hawthorn Crescent',
     'address_line_2' => '',
     'town' => 'Erskine',
