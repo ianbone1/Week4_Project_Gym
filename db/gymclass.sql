@@ -26,7 +26,8 @@ CREATE TABLE gymclasses (
 CREATE TABLE schedules (
   id SERIAL8 PRIMARY KEY,
   gymclass_id INT8 REFERENCES gymclasses(id) ON DELETE CASCADE,
-  start_time TIME NOT NULL,
+  start_date DATE NOT NULL DEFAULT CURRENT_DATE,
+  start_time TIME NOT NULL DEFAULT CURRENT_TIME,
   duration TIME NOT NULL,
   max_attendees INT NOT NULL
 );
