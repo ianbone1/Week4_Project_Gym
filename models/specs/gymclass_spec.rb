@@ -42,6 +42,11 @@ class Test_GymClass < Minitest::Test
     assert_equal(@gymclass0.id, foundclass.id)
   end
 
+  def test_list_schedules
+    theclass = GymClass.find_by_id(1)
+    the_schedule = theclass.schedule()
+  end
+
 
 
 

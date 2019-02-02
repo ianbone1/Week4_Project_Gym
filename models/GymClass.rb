@@ -1,4 +1,5 @@
 require_relative('../db/SQLRunner.rb')
+require_relative('./Schedule.rb')
 
 class GymClass
 
@@ -51,6 +52,18 @@ class GymClass
   def self.all()
     sql = "SELECT gymclasses.* FROM gymclasses;"
     return self.map_data(SQLRunner.execute(sql))
+  end
+
+  def schedule
+    sql = "SELECT s.id, gc.name, gc.description, s.start_date, s.start_time, s.duration, s.max_attendees
+      FROM gymclasses gc
+      INNER JOIN schedules s ON gc.id = s.gymclass_id
+      WHERE gc.id = $1
+      ORDER BY s.start_date, s.start_time, s.duration;"
+    values = [@id]
+
+    results = SQLRunner.execute(sql, values).to_a
+    return results
   end
 
 

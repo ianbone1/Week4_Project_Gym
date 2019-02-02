@@ -26,4 +26,10 @@ class TestSchedule < Minitest::Test
     @schedule0.save
     assert_equal(!nil, @schedule0.id != nil)
   end
+
+  def test_find_by_id
+    @schedule0.save
+    found_schedule = Schedule.find_by_id(@schedule0.id)
+    assert_equal(@schedule0.gymclass_id, found_schedule.gymclass_id)
+  end 
 end

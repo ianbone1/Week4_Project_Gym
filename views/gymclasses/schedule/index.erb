@@ -1,0 +1,43 @@
+<div class="gymclasses_table">
+<nav>
+
+  <nav>
+    <ul>
+      <li>
+          <a href="/gymclasses/create">Create New Class</a>
+      </li>
+      <li>
+          <a href="/gymclasses/schedule/create">Create New Schedule</a>
+      </li>
+    </ul>
+  </nav>
+  <table>
+    <thead>
+      <caption><h2>Class Schedule for <%= @gymclass.name %></h2></caption>
+      <tr>
+      <th> </th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>Start Time</th>
+      <th>Duration</th>
+      <th>Max Attendees</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <th><a href="/gymclasses/schedule/<%= schedule['id'] %>">edit</a></th>
+          <td><%= schedule['id'].to_i %></td>
+          <td><%= schedule['name'] %></td>
+          <td><%= schedule['description'] %></td>
+          <td><%= schedule['start_date'] %></td>
+          <td><%= schedule['start_time'] %></td>
+          <td><%= schedule['duration'] %></td>
+          <td><%= schedule['max_attendees'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

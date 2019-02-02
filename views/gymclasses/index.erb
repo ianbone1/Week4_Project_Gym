@@ -12,7 +12,8 @@
     <thead>
       <caption><h2>All Classes</h2></caption>
       <tr>
-      <th> </th>
+      <th></th>
+      <th></th>
       <th>ID</th>
       <th>Name</th>
       <th>Description</th>
@@ -22,6 +23,7 @@
       <% @gymclasses.each do |gymclass| %>
         <tr>
           <th><a href="/gymclasses/<%= gymclass.id %>/get">edit</a></th>
+          <th><a href="/gymclasses/schedules/<%= gymclass.id %>">View Schedule</a></th>
           <td><%= gymclass.id %></td>
           <td><%= gymclass.name%></td>
           <td><%= gymclass.description%></td>

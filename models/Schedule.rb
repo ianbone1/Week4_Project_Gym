@@ -35,4 +35,36 @@ class Schedule
     @id = SQLRunner.execute(sql, values).first['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE schedules SET (gymclass_id, start_date, start_time,
+      duration, max_attendees) = ($1, $2, $3, $4, $5) WHERE id = $6;"
+    values= [@gymclass_id, @start_date, @start_time, @duration, @max_attendees, @id]
+    SQLRunner.execute(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM schedules WHERE id = $1;"
+    values = [@id]
+    SQLRunner.execute(sql, values)
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM sschedules;"
+    SQLRunner.execute(sql)
+  end
+
+  def self.find_by_id(the_id)
+    sql = "SELECT * FROM schedules
+      WHERE id = $1;"
+    values = [the_id]
+    return self.map_data(SQLRunner.execute(sql, values)).first
+  end
+
+  def self.all()
+    sql = "SELECT schedules.* FROM schedules;"
+    return self.map_data(SQLRunner.execute(sql))
+  end
+
+
+
 end
