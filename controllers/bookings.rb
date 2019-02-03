@@ -5,13 +5,14 @@ require( 'pry-byebug' )
 require_relative( '../models/GymClass.rb' )
 also_reload( '../models/*' )
 
-#
-# # show schedules
-# get '/gymclasses/schedules/:id' do
-#   @gymclass = GymClass.find_by_id(params['id'])
-#   @schedules = @gymclass.schedule()
-#   erb ( :"gymclasses/schedule/index" )
-# end
+
+# show schedules
+get '/gymclasses/bookings/:id' do
+  #id is a schedule id
+  @schedule = Schedule.find_by_id(params['id'])
+  @bookings = @schedule.bookings()
+  erb ( :"gymclasses/bookings/index" )
+end
 #
 # # edit schedule
 # get '/gymclasses/schedule/:id' do

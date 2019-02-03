@@ -55,4 +55,5 @@ class Booking
     return self.map_data(SQLRunner.execute(sql, values)).first
   end
 
+  
 end

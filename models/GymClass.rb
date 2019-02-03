@@ -1,5 +1,7 @@
 require_relative('../db/SQLRunner.rb')
 require_relative('./Schedule.rb')
+require_relative('./Booking.rb')
+require_relative('./Member.rb')
 
 class GymClass
 
@@ -50,18 +52,33 @@ class GymClass
   end
 
   def self.all()
-    sql = "SELECT gymclasses.* FROM gymclasses;"
+    sql = "SELECT gymclasses.* FROM gymclasses ORDER BY name;"
     return self.map_data(SQLRunner.execute(sql))
   end
 
   def schedule
-    sql = "SELECT s.id, gc.name, gc.description, s.start_date, s.start_time, s.duration, s.max_attendees
+    sql = "SELECT s.id, gc.name, gc.description, s.start_date, s.start_time, s.duration, s.max_attendees, count(b.*) attendees_booked
       FROM gymclasses gc
       INNER JOIN schedules s ON gc.id = s.gymclass_id
+      LEFT JOIN bookings b ON b.schedule_id = s.id
       WHERE gc.id = $1
-      ORDER BY s.start_date, s.start_time, s.duration;"
+      GROUP BY s.id, gc.name, gc.description, s.start_date, s.start_time, s.duration, s.max_attendees
+      ORDER BY s.start_date, s.start_time;"
     values = [@id]
 
+    results = SQLRunner.execute(sql, values).to_a
+    return results
+  end
+
+  def bookings()
+    sql = "SELECT gc.name, s.start_date, s.start_time, s.duration, m.first_name, m.last_name
+      FROM gymclasses gc
+      INNER JOIN schedules s ON gc.id = s.gymclass_id
+      INNER JOIN bookings b ON s.id = b.schedule_id
+      INNER JOIN members m ON b.member_id = m.id
+      WHERE gc.id = $1
+      ORDER BY s.start_date, s.start_time;"
+    values = [@id]
     results = SQLRunner.execute(sql, values).to_a
     return results
   end

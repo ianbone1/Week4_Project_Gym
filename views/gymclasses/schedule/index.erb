@@ -16,6 +16,7 @@
       <caption><h2>Class Schedule for <%= @gymclass.name %></h2></caption>
       <tr>
       <th> </th>
+      <th> </th>
       <th>ID</th>
       <th>Name</th>
       <th>Description</th>
@@ -23,12 +24,14 @@
       <th>Start Time</th>
       <th>Duration</th>
       <th>Max Attendees</th>
+      <th>Bookings</th>
     </tr>
     </thead>
     <tbody>
       <% @schedules.each do |schedule| %>
         <tr>
-          <th><a href="/gymclasses/schedule/<%= schedule['id'] %>">edit</a></th>
+          <th><a href="/gymclasses/schedule/<%= schedule['id'] %>/edit">edit</a></th>
+          <th><a href="/gymclasses/bookings/<%= schedule['id'] %>">View Bookings</a></th>
           <td><%= schedule['id'].to_i %></td>
           <td><%= schedule['name'] %></td>
           <td><%= schedule['description'] %></td>
@@ -36,6 +39,7 @@
           <td><%= schedule['start_time'] %></td>
           <td><%= schedule['duration'] %></td>
           <td><%= schedule['max_attendees'] %></td>
+          <td><%= schedule['attendees_booked'] %></td>
         </tr>
       <% end %>
     </tbody>

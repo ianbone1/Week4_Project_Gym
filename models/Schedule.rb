@@ -61,10 +61,21 @@ class Schedule
   end
 
   def self.all()
-    sql = "SELECT schedules.* FROM schedules;"
+    sql = "SELECT schedules.* FROM schedules ORDER BY start_date, start_time;"
     return self.map_data(SQLRunner.execute(sql))
   end
 
-
+  def bookings()
+    sql = "SELECT b.id, gc.name, s.start_date, s.start_time, s.duration, m.first_name, m.last_name
+      FROM gymclasses gc
+      INNER JOIN schedules s ON gc.id = s.gymclass_id
+      INNER JOIN bookings b ON s.id = b.schedule_id
+      INNER JOIN members m ON b.member_id = m.id
+      WHERE s.id = $1
+      ORDER BY s.start_date, s.start_time;"
+    values = [@id]
+    results = SQLRunner.execute(sql, values).to_a
+    return results
+  end
 
 end
