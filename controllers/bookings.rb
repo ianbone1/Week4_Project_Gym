@@ -6,14 +6,25 @@ require_relative( '../models/GymClass.rb' )
 also_reload( '../models/*' )
 
 
+
+
+#delete booking
+post '/gymclasses/bookings/:id/delete' do
+  booking = Booking.find_by_id(params['id'].to_i)
+  # binding.pry
+  booking.delete()
+  refreshed_page = "/gymclasses/bookings/" + booking['schedule_id'].to_s
+  redirect to refreshed_page
+end
+#
+
 # show schedules
 get '/gymclasses/bookings/:id' do
   #id is a schedule id
   @schedule = Schedule.find_by_id(params['id'])
   @bookings = @schedule.bookings()
-  erb ( :"gymclasses/bookings/index" )
+  erb ( :"/gymclasses/bookings/index" )
 end
-#
 # # edit schedule
 # get '/gymclasses/schedule/:id' do
 #   @schedule = Schedule.find_by_id(params['id'].to_i)

@@ -4,7 +4,7 @@
   <nav>
     <ul>
       <li>
-          <a href="/gymclasses/create">Create New Class</a>
+          <a href="/gymclasses">Back</a>
       </li>
       <li>
           <a href="/gymclasses/schedule/<%= @gymclass.id %>/create">Create New Schedule</a>
@@ -17,11 +17,8 @@
       <tr>
       <th> </th>
       <th> </th>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Start Date</th>
-      <th>Start Time</th>
+      <th>Date</th>
+      <th>Time</th>
       <th>Duration</th>
       <th>Max Attendees</th>
       <th>Bookings</th>
@@ -32,9 +29,6 @@
         <tr>
           <th><a href="/gymclasses/schedule/<%= schedule['id'] %>/edit">edit</a></th>
           <th><a href="/gymclasses/bookings/<%= schedule['id'] %>">View Bookings</a></th>
-          <td><%= schedule['id'].to_i %></td>
-          <td><%= schedule['name'] %></td>
-          <td><%= schedule['description'] %></td>
           <td><%= schedule['start_date'] %></td>
           <td><%= schedule['start_time'] %></td>
           <td><%= schedule['duration'] %></td>

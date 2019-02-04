@@ -1,4 +1,12 @@
+<nav class="subnav">
+  <ul>
+    <li>
+      <a href="/gymclasses">Back</a>
+    </li>
+  </ul>
+</nav>
 <h2>Update Member Details</h2>
+
 <div class="members">
   <form method="post" action="/members/<%= @member.id %>">
     <div class="member">
@@ -7,7 +15,7 @@
       <label for="last-name">Last Name:</label>
         <input type="text" name="last_name" id="last-name" value="<%= @member.last_name %>"/>
         <label for="premium">Premium:</label>
-          <input type="radio" name="premium" id="premium" <%= ' checked ' if @member.premium == 't' %> ></input>
+          <input type="checkbox" name="premium" id="premium" <%= ' checked ' if @member.premium == 't' %> ></input>
       <label for="address_line_1">Address Line 1:</label>
         <input type="text" name="address_line_1" id="address_line_1" value="<%= @member.address_line_1 %>"/>
       <label for="address_line_2">Address Line 2:</label>

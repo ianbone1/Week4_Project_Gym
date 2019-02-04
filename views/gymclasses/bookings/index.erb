@@ -4,13 +4,17 @@
   <nav>
     <ul>
       <li>
+        <a href="/gymclasses/schedules/<%=@schedule.gymclass_id%>">Back</a>
+      </li>
+      <li>
           <a href="/gymclasses/bookings/create">Create New Booking</a>
       </li>
     </ul>
   </nav>
   <table>
     <thead>
-      <caption><h2>All Class Bookings</h2></caption>
+      <caption><h2>Class Bookings</h2></caption>
+
       <tr>
       <th></th>
       <th>Name</th>
@@ -24,7 +28,11 @@
     <tbody>
       <% @bookings.each do |booking| %>
         <tr>
-          <th><a href="/gymclasses/bookings/<%= booking['id'] %>/get">edit</a></th>
+          <th>
+            <form method="post" action="/gymclasses/bookings/<%= @schedule.id %>/delete">
+              <input type="submit" value="delete"/>
+            </form>
+          </th>
           <td><%= booking['name'] %></td>
           <td><%= booking['start_date']%></td>
           <td><%= booking['start_time']%></td>

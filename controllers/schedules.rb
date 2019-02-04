@@ -7,16 +7,17 @@ also_reload( '../models/*' )
 
 # show schedules
 get '/gymclasses/schedules/:id' do
+  #id is a gymclass id
   @gymclass = GymClass.find_by_id(params['id'])
   @schedules = @gymclass.schedule()
-  erb ( :"gymclasses/schedule/index" )
+  erb ( :"/gymclasses/schedule/index" )
 end
 
 # edit schedule
 get '/gymclasses/schedule/:id/edit' do
   @schedule = Schedule.find_by_id(params['id'].to_i)
   @gymclass = GymClass.find_by_id(@schedule.gymclass_id)
-  erb( :"gymclasses/schedule/edit" )
+  erb( :"/gymclasses/schedule/edit" )
 end
 
 #create/save a new schedule

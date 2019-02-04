@@ -4,6 +4,9 @@
   <nav>
     <ul>
       <li>
+        <a href="/">Back</a>
+      </li>
+      <li>
           <a href="/members/create">Create New Member</a>
       </li>
     </ul>
@@ -31,7 +34,7 @@
           <th><a href="/members/<%= member.id %>/get">edit</a></th>
           <td><%= member.id %></td>
           <td><%= member.first_name.to_s + " " + member.last_name.to_s %></td>
-          <td><input type="radio" id="member<%= member.id %>" name="member<%= member.id %>" <%= ' checked ' if member.premium == 't' %> disabled></input></td>
+          <td><input type="checkbox" id="member<%= member.id %>" name="member<%= member.id %>" <%= ' checked ' if member.premium == 't' %> disabled></input></td>
           <td><%= member.address_line_1 %></td>
           <td><%= member.address_line_2 %></td>
           <td><%= member.town %></td>
