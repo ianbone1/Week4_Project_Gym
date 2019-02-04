@@ -1,12 +1,8 @@
- <h2>Update Schedule Details</h2>
+<nav class="subnav">
+  <a class="home" href="/gymclasses/schedules/<%= @gymclass.id %>">Back</a>
+</nav>
 
- <nav>
-   <ul>
-     <li>
-       <a href="/gymclasses/schedules/<%= @gymclass.id %>">Back</a>
-     </li>
-   </ul>
- </nav>
+<h2>Update Schedule Details</h2>
 <div class="schedules">
   <form method="post" action="/gymclasses/schedule/<%= @schedule.id %>">
     <div class="schedule">

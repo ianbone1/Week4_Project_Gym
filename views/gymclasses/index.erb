@@ -1,38 +1,29 @@
-<div class="gymclasses_table">
-<nav>
+<nav class="subnav">
+  <a href="/">Back</a>
+  <a class="home" href="/gymclasses/create">Create New Class</a>
+</nav>
 
-  <nav class="subnav">
-    <ul>
-      <li>
-          <a href="/">Back</a>
-      </li>
-      <li>
-          <a href="/gymclasses/create">Create New Class</a>
-      </li>
-    </ul>
-  </nav>
+<div class="gymclasses_table">
   <table>
     <thead>
-      <caption><h2>All Classes</h2></caption>
+      <caption>All Classes</caption>
       <tr>
-      <th></th>
-      <th></th>
-      <!-- <th>ID</th> -->
-      <th>Name</th>
-      <th>Description</th>
-      <th>Schedules</th>
-    </tr>
+        <th></th>
+        <th></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Schedules</th>
+      </tr>
     </thead>
     <tbody>
       <% @gymclasses.each do |gymclass| %>
-        <tr>
-          <th><a href="/gymclasses/<%= gymclass.id %>/get">edit</a></th>
-          <th><a href="/gymclasses/schedules/<%= gymclass.id %>">View Schedule</a></th>
-          <!-- <td><%= gymclass.id %></td> -->
-          <td><%= gymclass.name%></td>
-          <td><%= gymclass.description%></td>
-          <td><%= gymclass.schedule.count %></td>
-        </tr>
+      <tr>
+        <th><a href="/gymclasses/<%= gymclass.id %>/get">edit</a></th>
+        <th><a href="/gymclasses/schedules/<%= gymclass.id %>">View Schedule</a></th>
+        <td><%= gymclass.name%></td>
+        <td><%= gymclass.description%></td>
+        <td><%= gymclass.schedule.count %></td>
+      </tr>
       <% end %>
     </tbody>
   </table>

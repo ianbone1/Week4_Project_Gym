@@ -1,13 +1,8 @@
 <nav class="subnav">
-  <ul>
-    <li>
-      <a href="/gymclasses/bookings/<%= @schedule.id %>">Back</a>
-    </li>
-  </ul>
+  <a class="home" href="/gymclasses/bookings/<%= @schedule.id %>">Back</a>
 </nav>
-<h2>Select Member To Book Into <%=@gymclass.name + " on " + @schedule.start_date + " at " + @schedule.start_time%></h2>
-<br>
 
+<h2>Select Member To Book Into <%=@gymclass.name + " on " + @schedule.start_date + " at " + @schedule.start_time%></h2>
 <div class="schedules">
  <form method="post" action="/gymclasses/bookings/create-from-schedule">
    <div class="schedule">
@@ -15,7 +10,7 @@
        <select name="member_id" id="member_id" value="member_id">
          <% @members.each do |member| %>
          <%= pretty_name = member.last_name + ", " + member.first_name %>
-         <option value="<%=member.id%>" <%= " disabled" if ((@schedule.start_time >= "19:00:00" && @schedule.start_time <= "21:00:00") || (@schedule.start_time >= "05:00:00" && @schedule.start_time <= "08:00:00")) && !member.premium %>><%=pretty_name%></option>
+         <option value="<%=member.id%>" <%= " disabled" if ((@schedule.start_time >= "17:00:00" && @schedule.start_time <= "20:00:00") || (@schedule.start_time >= "07:00:00" && @schedule.start_time <= "09:00:00")) && !member.premium %>><%=pretty_name%></option>
          <%end%>
        </select>
        <input type="text" name="schedule_id" id="schedule_id" value="<%= @schedule.id %>" hidden/>
