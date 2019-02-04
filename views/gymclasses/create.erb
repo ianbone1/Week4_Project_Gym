@@ -1,16 +1,20 @@
-<nav class="subnav">
-  <a class="home" href="/gymclasses">Back</a>
-</nav>
+<div class="sub_nav_wrapper">
+  <nav class="subnav">
+    <a class="home" href="/gymclasses">Back</a>
+  </nav>
+</div>
 
-<h2>Create New Gym Class</h2>
-<div class="gymclasses">
-  <form method="post" action="/gymclasses">
-    <div class="gymclass">
-      <label for="name">Class Name:</label>
+<div class="erb_wrapper">
+  <h2>Create New Gym Class</h2>
+  <div class="gymclasses">
+    <form method="post" action="/gymclasses">
+      <div class="gymclass">
+        <label for="name">Class Name:</label>
         <input type="text" name="name" id="name"/>
-      <label for="description">Description:</label>
+        <label for="description">Description:</label>
         <input type="text" name="description" id="description"/>
-    </div>
-    <input type="submit" value="Create Class"/>
-  </form>
+      </div>
+      <input type="submit" value="Create Class"/>
+    </form>
+  </div>
 </div>

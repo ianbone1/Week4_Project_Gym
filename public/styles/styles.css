@@ -14,20 +14,33 @@ body {
   flex-direction: column;
 }
 
-.parent {
+h1 {
+  font-size: 35px;
+}
+.top_nav_wrapper {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
-  margin: auto;
   width: 100%;
+  background-color: black;
+  color : silver;
+  z-index: +1;
 }
 
-.wrapper {
-  width: 100%;
+.erb_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 5%;
   align-items: center;
+  overflow: hidden;
+  background-color: black;
+  min-width: 90%;
+  color : silver;
+  margin-top: 45px;
+  background: transparent;
 }
 
 .topnav {
@@ -55,14 +68,17 @@ body {
   color: black;
 }
 
-/* Add a color to the active/current link */
-/* .topnav a.home {
-background-color: silver;
-color: black;
-} */
-
+.sub_nav_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+  width: 100%;
+  background-color: black;
+  color : silver;
+}
 
 .subnav {
+  justify-content: flex-start;
   background-color: #565656;
   overflow: hidden;
 }
@@ -84,14 +100,23 @@ color: black;
   color: black;
 }
 
+.table_wrapper{
+  /*  */
+}
+
+.checkbox {
+  font-size: 3em;
+  color: red;
+
+}
 
 table {
   border-collapse: collapse;
-  border: 2px solid silver;
+  border: 1px solid silver;
   letter-spacing: 1px;
   font-size: 0.8rem;
   max-width: 80%;
-  opacity: 0.9;
+  opacity: 0.95;
   background: transparent;
   color: black;
 
@@ -99,7 +124,7 @@ table {
 
 td, th {
   border: 1px solid rgb(190,190,190);
-  padding: 10px 20px;
+  padding: 5px 10px;
 }
 
 th {
@@ -117,6 +142,7 @@ tr:nth-child(even) td {
 tr:nth-child(odd) td {
   background-color: rgb(220,220,220);
 }
+
 
 caption {
   font-variant: small-caps;

@@ -1,38 +1,42 @@
-<nav class="subnav">
-  <a class="home" href="/gymclasses/schedules/<%=@schedule.gymclass_id%>">Back</a>
-  <a href="/gymclasses/bookings/<%=@schedule.id%>/create-from-schedule" <%= "hidden" if @bookings.count >= @schedule.max_attendees %>>Create New Booking</a>
-</nav>
+<div class="sub_nav_wrapper">
+  <nav class="subnav">
+    <a class="home" href="/gymclasses/schedules/<%=@schedule.gymclass_id%>">Back</a>
+    <a href="/gymclasses/bookings/<%=@schedule.id%>/create-from-schedule" <%= "hidden" if @bookings.count >= @schedule.max_attendees %>>Create New Booking</a>
+  </nav>
+</div>
 
-<div class="bookings_table">
-  <table>
-    <thead>
-      <caption>Class Bookings</caption>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Duration</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @bookings.each do |booking| %>
-      <tr>
-        <th>
-          <form method="post" action="/gymclasses/bookings/<%= booking['id'] %>/delete">
-            <input type="submit" value="delete"/>
-          </form>
-        </th>
-        <td><%= booking['name'] %></td>
-        <td><%= booking['start_date']%></td>
-        <td><%= booking['start_time']%></td>
-        <td><%= booking['duration']%></td>
-        <td><%= booking['first_name']%></td>
-        <td><%= booking['last_name']%></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="erb_wrapper">
+  <div class="bookings_table">
+    <table>
+      <thead>
+        <caption>Class Bookings</caption>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Duration</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bookings.each do |booking| %>
+        <tr>
+          <th>
+            <form method="post" action="/gymclasses/bookings/<%= booking['id'] %>/delete">
+              <input type="submit" value="delete"/>
+            </form>
+          </th>
+          <td><%= booking['name'] %></td>
+          <td><%= booking['start_date']%></td>
+          <td><%= booking['start_time']%></td>
+          <td><%= booking['duration']%></td>
+          <td><%= booking['first_name']%></td>
+          <td><%= booking['last_name']%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

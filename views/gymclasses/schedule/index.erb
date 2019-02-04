@@ -1,34 +1,38 @@
-<nav class="subnav">
-  <a class="home" href="/gymclasses">Back</a>
-  <a href="/gymclasses/schedule/<%= @gymclass.id %>/create">Create New Schedule</a>
-</nav>
+<div class="sub_nav_wrapper">
+  <nav class="subnav">
+    <a class="home" href="/gymclasses">Back</a>
+    <a href="/gymclasses/schedule/<%= @gymclass.id %>/create">Create New Schedule</a>
+  </nav>
+</div>
 
-<div class="schedule_table">
-  <table>
-    <thead>
-      <caption>Class Schedule for <%= @gymclass.name %></caption>
-      <tr>
-        <th> </th>
-        <th> </th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Duration</th>
-        <th>Max Attendees</th>
-        <th>Bookings</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @schedules.each do |schedule| %>
-      <tr>
-        <th><a href="/gymclasses/schedule/<%= schedule['id'] %>/edit">edit</a></th>
-        <th><a href="/gymclasses/bookings/<%= schedule['id'] %>">Mange Bookings</a></th>
-        <td><%= schedule['start_date'] %></td>
-        <td><%= schedule['start_time'] %></td>
-        <td><%= schedule['duration'] %></td>
-        <td><%= schedule['max_attendees'] %></td>
-        <td><%= schedule['attendees_booked'] >= schedule['max_attendees'] ? "FULL" : schedule['attendees_booked']%></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="erb_wrapper">
+  <div class="schedule_table">
+    <table>
+      <thead>
+        <caption>Class Schedule for <%= @gymclass.name %></caption>
+        <tr>
+          <th> </th>
+          <th> </th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Duration</th>
+          <th>Max Attendees</th>
+          <th>Bookings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @schedules.each do |the_schedule| %>
+        <tr>
+          <th><a href="/gymclasses/schedule/<%= the_schedule['id'] %>/edit">edit</a></th>
+          <th><a href="/gymclasses/bookings/<%= the_schedule['id'] %>">Mange Bookings</a></th>
+          <td><%= the_schedule['start_date'] %></td>
+          <td><%= the_schedule['start_time'] %></td>
+          <td><%= the_schedule['duration'] %></td>
+          <td><%= the_schedule['max_attendees'] %></td>
+          <td><%= (the_schedule['attendees_booked'].to_i >= the_schedule['max_attendees'].to_i) ? "FULL" : the_schedule['attendees_booked']%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

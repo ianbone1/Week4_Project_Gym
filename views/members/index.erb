@@ -1,16 +1,17 @@
+<div class="sub_nav_wrapper">
 <nav class="subnav">
   <a href="/">Back</a>
   <a class="home" href="/members/create">Create New Member</a>
 </nav>
+</div>
 
-<div class="wrapper>"
-  <div class="members_table">
+<div class="erb_wrapper">
+  <div class="table_wrapper">
   <table>
     <thead>
       <caption>All Members</caption>
       <tr>
         <th> </th>
-        <th>ID</th>
         <th>Name</th>
         <th>Premium</th>
         <th>Address Line 1</th>
@@ -26,9 +27,8 @@
       <% @members.each do |member| %>
         <tr>
           <th><a href="/members/<%= member.id %>/get">edit</a></th>
-          <td><%= member.id %></td>
-          <td><%= member.first_name.to_s + " " + member.last_name.to_s %></td>
-          <td><input type="checkbox" id="member<%= member.id %>" name="member<%= member.id %>" <%= ' checked ' if member.premium == 't' %> disabled></input></td>
+          <td><%= member.last_name.to_s + ", " + member.first_name.to_s %></td>
+          <td><input class="checkbox" type="checkbox" id="member<%= member.id %>" name="member<%= member.id %>" <%= ' checked ' if member.premium == 't' %> disabled></input></td>
           <td><%= member.address_line_1 %></td>
           <td><%= member.address_line_2 %></td>
           <td><%= member.town %></td>

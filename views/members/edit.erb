@@ -1,35 +1,39 @@
-<nav class="subnav">
-  <a class="home" href="/members">Back</a>
-</nav>
+<div class="sub_nav_wrapper">
+  <nav class="subnav">
+    <a class="home" href="/members">Back</a>
+  </nav>
+</div>
 
-<h2>Update Member Details</h2>
-<div class="members">
-  <form method="post" action="/members/<%= @member.id %>">
-    <div class="member">
-      <label for="first-name">First Name:</label>
+<div class="erb_wrapper">
+  <caption>Update Member Details</caption>
+  <div class="members">
+    <form method="post" action="/members/<%= @member.id %>">
+      <div class="member">
+        <label for="first-name">First Name:</label>
         <input type="text" name="first_name" id="first-name" value="<%= @member.first_name %>"/>
-      <label for="last-name">Last Name:</label>
+        <label for="last-name">Last Name:</label>
         <input type="text" name="last_name" id="last-name" value="<%= @member.last_name %>"/>
         <label for="premium">Premium:</label>
-          <input type="checkbox" name="premium" id="premium" <%= ' checked ' if @member.premium == 't' %> ></input>
-      <label for="address_line_1">Address Line 1:</label>
+        <input type="checkbox" name="premium" id="premium" <%= ' checked ' if @member.premium == 't' %> ></input>
+        <label for="address_line_1">Address Line 1:</label>
         <input type="text" name="address_line_1" id="address_line_1" value="<%= @member.address_line_1 %>"/>
-      <label for="address_line_2">Address Line 2:</label>
+        <label for="address_line_2">Address Line 2:</label>
         <input type="text" name="address_line_2" id="address_line_2" value="<%= @member.address_line_2 %>"/>
-      <label for="town">Town:</label>
+        <label for="town">Town:</label>
         <input type="text" name="town" id="town" value="<%= @member.town %>"/>
-      <label for="district">District:</label>
+        <label for="district">District:</label>
         <input type="text" name="district" id="district" value="<%= @member.district %>"/>
-      <label for="post_code">Post Code:</label>
+        <label for="post_code">Post Code:</label>
         <input type="text" name="post_code" id="post_code" value="<%= @member.post_code %>"/>
-      <label for="telephone">Telephone #:</label>
+        <label for="telephone">Telephone #:</label>
         <input type="text" name="telephone" id="telephone" value="<%= @member.telephone %>"/>
-      <label for="email">Email:</label>
+        <label for="email">Email:</label>
         <input type="text" name="email" id="email" value="<%= @member.email %>"/>
-    </div>
-    <input type="submit" value="Update Member"/>
-  </form>
-  <form method="post" action="/members/<%= @member.id %>/delete">
-    <input type="submit" value="Delete Member"/>
-  </form>
+      </div>
+      <input type="submit" value="Update Member"/>
+    </form>
+    <form method="post" action="/members/<%= @member.id %>/delete">
+      <input type="submit" value="Delete Member"/>
+    </form>
+  </div>
 </div>
