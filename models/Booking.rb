@@ -14,8 +14,8 @@ class Booking
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
-    @member_id = params['member_id']
-    @schedule_id = params['schedule_id']
+    @member_id = params['member_id'].to_i
+    @schedule_id = params['schedule_id'].to_i
   end
 
   def self.map_data(data_hash)
@@ -43,6 +43,16 @@ class Booking
     SQLRunner.execute(sql, values)
   end
 
+  def check_space
+    sql = "SELECT count(b.*) bookings
+      FROM bookings b
+      WHERE schedule_id = $1;"
+    values = [@schedule_id]
+    booking_count = SQLRunner.execute(sql, values).first['bookings'].to_i
+    binding.pry
+    return booking_count
+  end
+
   def self.delete_all
     sql = "DELETE FROM bookings;"
     SQLRunner.execute(sql)
@@ -55,5 +65,5 @@ class Booking
     return self.map_data(SQLRunner.execute(sql, values)).first
   end
 
-  
+
 end

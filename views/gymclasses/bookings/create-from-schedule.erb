@@ -1,0 +1,25 @@
+<nav class="subnav">
+  <ul>
+    <li>
+      <a href="/gymclasses/bookings/<%= @schedule.id %>">Back</a>
+    </li>
+  </ul>
+</nav>
+<h2>Select Member To Book Into <%=@gymclass.name + " on " + @schedule.start_date + " at " + @schedule.start_time%></h2>
+<br>
+
+<div class="schedules">
+ <form method="post" action="/gymclasses/bookings/create-from-schedule">
+   <div class="schedule">
+     <label for="member_id:">Select Member:</label>
+       <select name="member_id" id="member_id" value="member_id">
+         <% @members.each do |member| %>
+         <%= pretty_name = member.last_name + ", " + member.first_name %>
+         <option value="<%=member.id%>"><%=pretty_name%></option>
+         <%end%>
+       </select>
+       <input type="text" name="schedule_id" id="schedule_id" value="<%= @schedule.id %>" hidden/>
+   </div>
+   <input type="submit" value="Book"/>
+ </form>
+</div>

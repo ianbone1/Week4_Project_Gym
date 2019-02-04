@@ -28,12 +28,12 @@
       <% @schedules.each do |schedule| %>
         <tr>
           <th><a href="/gymclasses/schedule/<%= schedule['id'] %>/edit">edit</a></th>
-          <th><a href="/gymclasses/bookings/<%= schedule['id'] %>">View Bookings</a></th>
+          <th><a href="/gymclasses/bookings/<%= schedule['id'] %>">Mange Bookings</a></th>
           <td><%= schedule['start_date'] %></td>
           <td><%= schedule['start_time'] %></td>
           <td><%= schedule['duration'] %></td>
           <td><%= schedule['max_attendees'] %></td>
-          <td><%= schedule['attendees_booked'] %></td>
+          <td><%= schedule['attendees_booked'] >= schedule['max_attendees'] ? "FULL" : schedule['attendees_booked']%></td>
         </tr>
       <% end %>
     </tbody>

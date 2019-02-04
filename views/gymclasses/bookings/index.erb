@@ -7,7 +7,7 @@
         <a href="/gymclasses/schedules/<%=@schedule.gymclass_id%>">Back</a>
       </li>
       <li>
-          <a href="/gymclasses/bookings/create">Create New Booking</a>
+          <a href="/gymclasses/bookings/<%=@schedule.id%>/create-from-schedule" <%= "hidden" if @bookings.count >= @schedule.max_attendees %>>Create New Booking</a>
       </li>
     </ul>
   </nav>
@@ -29,7 +29,7 @@
       <% @bookings.each do |booking| %>
         <tr>
           <th>
-            <form method="post" action="/gymclasses/bookings/<%= @schedule.id %>/delete">
+            <form method="post" action="/gymclasses/bookings/<%= booking['id'] %>/delete">
               <input type="submit" value="delete"/>
             </form>
           </th>
