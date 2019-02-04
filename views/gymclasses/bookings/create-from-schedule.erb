@@ -15,7 +15,7 @@
        <select name="member_id" id="member_id" value="member_id">
          <% @members.each do |member| %>
          <%= pretty_name = member.last_name + ", " + member.first_name %>
-         <option value="<%=member.id%>"><%=pretty_name%></option>
+         <option value="<%=member.id%>" <%= " disabled" if ((@schedule.start_time >= "19:00:00" && @schedule.start_time <= "21:00:00") || (@schedule.start_time >= "05:00:00" && @schedule.start_time <= "08:00:00")) && !member.premium %>><%=pretty_name%></option>
          <%end%>
        </select>
        <input type="text" name="schedule_id" id="schedule_id" value="<%= @schedule.id %>" hidden/>

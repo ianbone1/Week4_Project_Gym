@@ -52,7 +52,11 @@ class GymClass
   end
 
   def self.all()
-    sql = "SELECT gymclasses.* FROM gymclasses ORDER BY name;"
+    sql = "SELECT gc.*, count(s.*) schedules
+      FROM gymclasses gc
+      LEFT JOIN schedules s ON gc.id = s.gymclass_id
+      GROUP BY gc.id, gc.name, gc.description
+      ORDER BY name;"
     return self.map_data(SQLRunner.execute(sql))
   end
 
