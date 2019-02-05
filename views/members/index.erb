@@ -27,15 +27,15 @@
       <% @members.each do |member| %>
         <tr>
           <th><a href="/members/<%= member.id %>/get">edit</a></th>
-          <td><%= member.last_name.to_s + ", " + member.first_name.to_s %></td>
-          <td><input class="checkbox" type="checkbox" id="member<%= member.id %>" name="member<%= member.id %>" <%= ' checked ' if member.premium == 't' %> disabled></input></td>
-          <td><%= member.address_line_1 %></td>
-          <td><%= member.address_line_2 %></td>
-          <td><%= member.town %></td>
-          <td><%= member.district %></td>
-          <td><%= member.post_code %></td>
-          <td><%= member.telephone %></td>
-          <td><%= member.email %></td>
+          <td width="300px"><%= member.last_name.to_s + ", " + member.first_name.to_s %></td>
+          <td width="50px"><input class="checkbox" type="checkbox" id="member<%= member.id %>" name="member<%= member.id %>" <%= ' checked ' if member.premium == 't' %> disabled></input></td>
+          <td width="200px"><%= member.address_line_1 %></td>
+          <td width="200px"><%= member.address_line_2 %></td>
+          <td width="200px"><%= member.town %></td>
+          <td width="200px"><%= member.district %></td>
+          <td width="200px"><%= member.post_code %></td>
+          <td width="200px"><%= member.telephone %></td>
+          <td width="200px"><%= member.email %></td>
         </tr>
       <% end %>
     </tbody>

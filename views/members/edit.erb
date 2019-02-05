@@ -5,35 +5,61 @@
 </div>
 
 <div class="erb_wrapper">
-  <caption>Update Member Details</caption>
-  <div class="members">
+  <h1>Update Member Details</h1>
+  <div class="input_wrapper">
     <form method="post" action="/members/<%= @member.id %>">
-      <div class="member">
-        <label for="first-name">First Name:</label>
-        <input type="text" name="first_name" id="first-name" value="<%= @member.first_name %>"/>
-        <label for="last-name">Last Name:</label>
-        <input type="text" name="last_name" id="last-name" value="<%= @member.last_name %>"/>
-        <label for="premium">Premium:</label>
-        <input type="checkbox" name="premium" id="premium" <%= ' checked ' if @member.premium == 't' %> ></input>
-        <label for="address_line_1">Address Line 1:</label>
-        <input type="text" name="address_line_1" id="address_line_1" value="<%= @member.address_line_1 %>"/>
-        <label for="address_line_2">Address Line 2:</label>
-        <input type="text" name="address_line_2" id="address_line_2" value="<%= @member.address_line_2 %>"/>
-        <label for="town">Town:</label>
-        <input type="text" name="town" id="town" value="<%= @member.town %>"/>
-        <label for="district">District:</label>
-        <input type="text" name="district" id="district" value="<%= @member.district %>"/>
-        <label for="post_code">Post Code:</label>
-        <input type="text" name="post_code" id="post_code" value="<%= @member.post_code %>"/>
-        <label for="telephone">Telephone #:</label>
-        <input type="text" name="telephone" id="telephone" value="<%= @member.telephone %>"/>
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email" value="<%= @member.email %>"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="first-name">First Name:</label>
+        <input class="data_box" type="text" name="first_name" id="first-name" value="<%= @member.first_name %>"/>
       </div>
-      <input type="submit" value="Update Member"/>
-    </form>
-    <form method="post" action="/members/<%= @member.id %>/delete">
-      <input type="submit" value="Delete Member"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="last-name">Last Name:</label>
+        <input class="data_box" type="text" name="last_name" id="last-name" value="<%= @member.last_name %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="premium">Premium:</label>
+        <div class="checkbox">
+          <input type="checkbox" name="premium" id="premium" <%= ' checked ' if @member.premium == 't' %> ></input>
+        </div>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="address_line_1">Address Line 1:</label>
+        <input class="data_box" type="text" name="address_line_1" id="address_line_1" value="<%= @member.address_line_1 %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="address_line_2">Address Line 2:</label>
+        <input class="data_box" type="text" name="address_line_2" id="address_line_2" value="<%= @member.address_line_2 %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="town">Town:</label>
+        <input class="data_box" type="text" name="town" id="town" value="<%= @member.town %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="district">District:</label>
+        <input class="data_box" type="text" name="district" id="district" value="<%= @member.district %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="post_code">Post Code:</label>
+        <input class="data_box" type="text" name="post_code" id="post_code" value="<%= @member.post_code %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="telephone">Telephone #:</label>
+        <input class="data_box" type="text" name="telephone" id="telephone" value="<%= @member.telephone %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="email">Email:</label>
+        <input class="data_box" type="text" name="email" id="email" value="<%= @member.email %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <div class="button2_wrapper_left">
+          <input class="button" type="submit" value="Update Member"/>
+        </div>
+      </form>
+      <form method="post" action="/members/<%= @member.id %>/delete">
+        <div class="button2_wrapper_right">
+          <input class="button2" type="submit" value="Delete Member"/>
+        </div>
+        </div>
     </form>
   </div>
 </div>

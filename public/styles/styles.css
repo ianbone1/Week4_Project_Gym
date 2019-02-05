@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'EB Garamond', serif;
 }
 
 body {
@@ -16,7 +17,9 @@ body {
 
 h1 {
   font-size: 35px;
+  color: white;
 }
+
 .top_nav_wrapper {
   display: flex;
   flex-direction: column;
@@ -37,7 +40,7 @@ h1 {
   align-items: center;
   overflow: hidden;
   background-color: black;
-  min-width: 90%;
+  width: 90%;
   color : silver;
   margin-top: 45px;
   background: transparent;
@@ -57,7 +60,7 @@ h1 {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
   justify-content: flex-start;
   font-weight: bold;
 }
@@ -91,7 +94,7 @@ h1 {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 /* Change the color of links on hover */
@@ -102,24 +105,22 @@ h1 {
 
 .table_wrapper{
   /*  */
+  display: flex;
+  align-self:center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }
 
-.checkbox {
-  font-size: 3em;
-  color: red;
-
-}
 
 table {
   border-collapse: collapse;
   border: 1px solid silver;
   letter-spacing: 1px;
-  font-size: 0.8rem;
-  max-width: 80%;
+  width: 100%;
   opacity: 0.95;
   background: transparent;
   color: black;
-
 }
 
 td, th {
@@ -133,6 +134,7 @@ th {
 
 td {
   text-align: center;
+  align-items: center;
 }
 
 tr:nth-child(even) td {
@@ -150,4 +152,86 @@ caption {
   text-align: center;
   color: white;
   padding: 10px;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  width: 50%;
+  background-color: rgb(220,220,220);
+    opacity: 0.9;
+}
+
+.input_row_wrapper, .button_wrapper {
+  display: flex;
+  justify-content: center;
+  border: 1px solid silver;
+  letter-spacing: 1px;
+}
+
+.data_label{
+  padding: 5px 5px;
+  display:flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 30%;
+  background-color: rgb(200,200,200);
+  opacity: 0.9;
+  color: black;
+}
+
+.data_box {
+  display: flex;
+  align-items: flex-start;
+  width: 70%;
+    opacity: 0.95;
+    padding-left:10px;
+    font-size: 16px;
+
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  padding-left: 10px;
+}
+
+.button_wrapper {
+  display: flex;
+  width: 100%;
+  background-color: rgb(200,200,200);
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+
+.button2_wrapper_left {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  background-color: rgb(200,200,200);
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+
+.button2_wrapper_right {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  background-color: rgb(200,200,200);
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+
+.button {
+  font-size: 16px;
+  width: 50%;
+}
+.button2 {
+  font-size: 16px;
+  width: 100%;
 }

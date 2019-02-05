@@ -5,26 +5,39 @@
 </div>
 
 <div class="erb_wrapper">
-  <h2>Create <%=@gymclass.name %> Class Schedule</h2>
-  <div class="schedules">
+  <h1>Create <%=@gymclass.name %> Class Schedule</h1>
+  <div class="input_wrapper">
     <form method="post" action="/gymclasses/schedule">
-      <div class="schedule">
-        <!-- <label for="gymclass_id">Gym Class ID:</label> -->
-        <input type="text" name="gymclass_id" id="gymclass_id" value="<%= @gymclass.id %>" hidden/>
-        <label for="name">Class Name:</label>
-        <input type="text" name="name" id="name" value="<%= @gymclass.name %>" disabled/>
-        <label for="description">Class Description:</label>
-        <input type="text" name="description" id="description" value="<%= @gymclass.description %>" disabled/>
-        <label for="start_date">Start Date:</label>
-        <input type="text" name="start_date" id="start_date"/>
-        <label for="start_time">Start Time:</label>
-        <input type="text" name="start_time" id="start_time"/>
-        <label for="duration">Duration:</label>
-        <input type="text" name="duration" id="duration"/>
-        <label for="maxt_attendees">Max Attendees:</label>
-        <input type="text" name="max_attendees" id="max_attendees"/>
+      <!-- <label for="gymclass_id">Gym Class ID:</label> -->
+      <input type="text" name="gymclass_id" id="gymclass_id" value="<%= @gymclass.id %>" hidden/>
+
+      <div class="input_row_wrapper">
+        <label class="data_label" for="name">Class Name:</label>
+        <input class="data_box" type="text" name="name" id="name" value="<%= @gymclass.name %>" disabled/>
       </div>
-      <input type="submit" value="Create"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="description">Class Description:</label>
+        <input class="data_box" type="text" name="description" id="description" value="<%= @gymclass.description %>" disabled/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="start_date">Start Date:</label>
+        <input class="data_box" type="text" name="start_date" id="start_date" autofocus/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="start_time">Start Time:</label>
+        <input class="data_box" type="text" name="start_time" id="start_time"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="duration">Duration:</label>
+        <input class="data_box" type="text" name="duration" id="duration"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="max_attendees">Max Attendees:</label>
+        <input class="data_box" type="text" name="max_attendees" id="max_attendees"/>
+      </div>
+      <div class="button_wrapper">
+        <input class="button" type="submit" value="Create"/>
+      </div>
     </form>
   </div>
 </div>

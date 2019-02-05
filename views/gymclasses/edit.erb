@@ -5,19 +5,27 @@
 </div>
 
 <div class="erb_wrapper">
-  <h2>Update Class Details</h2>
-  <div class="gymclasses">
+  <h1>Update Class Details</h1>
+  <div class="input_wrapper">
     <form method="post" action="/gymclasses/<%= @gymclass.id %>">
-      <div class="gymclasses">
-        <label for="name">Class Name:</label>
-        <input type="text" name="name" id="name" value="<%= @gymclass.name %>"/>
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description" value="<%= @gymclass.description %>"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="name">Class Name:</label>
+        <input class="data_box" type="text" name="name" id="name" value="<%= @gymclass.name %>" autofocus/>
       </div>
-      <input type="submit" value="Update Class"/>
-    </form>
-    <form method="post" action="/gymclasses/<%= @gymclass.id %>/delete">
-      <input type="submit" value="Delete Class"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="description">Description:</label>
+        <input class="data_box" type="text" name="description" id="description" value="<%= @gymclass.description %>"/>
+      </div>
+      <div class="input_row_wrapper">
+        <div class="button2_wrapper_left">
+          <input class="button" type="submit" value="Update Class"/>
+        </div>
+      </form>
+      <form method="post" action="/gymclasses/<%= @gymclass.id %>/delete">
+        <div class="button2_wrapper_right">
+          <input type="submit" value="Delete Class"/>
+        </div>
+      </div>
     </form>
   </div>
 </div>

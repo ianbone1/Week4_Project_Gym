@@ -5,16 +5,20 @@
 </div>
 
 <div class="erb_wrapper">
-  <h2>Create New Gym Class</h2>
-  <div class="gymclasses">
+  <h1>Create New Gym Class</h1>
+  <div class="input_wrapper">
     <form method="post" action="/gymclasses">
-      <div class="gymclass">
-        <label for="name">Class Name:</label>
-        <input type="text" name="name" id="name"/>
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="name">Class Name:</label>
+        <input class="data_box" type="text" name="name" id="name" autofocus/>
       </div>
-      <input type="submit" value="Create Class"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="description">Description:</label>
+        <input class="data_box" type="text" name="description" id="description"/>
+      </div>
+      <div class="button_wrapper">
+        <input class="button" type="submit" value="Create Class"/>
+      </div>
     </form>
   </div>
 </div>

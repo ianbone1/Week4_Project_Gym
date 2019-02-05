@@ -12,12 +12,11 @@
         <caption>Class Bookings</caption>
         <tr>
           <th></th>
-          <th>Name</th>
+          <th>Class Name</th>
           <th>Date</th>
           <th>Time</th>
           <th>Duration</th>
-          <th>First Name</th>
-          <th>Last Name</th>
+          <th>Member Name</th>
         </tr>
       </thead>
       <tbody>
@@ -28,12 +27,11 @@
               <input type="submit" value="delete"/>
             </form>
           </th>
-          <td><%= booking['name'] %></td>
-          <td><%= booking['start_date']%></td>
-          <td><%= booking['start_time']%></td>
-          <td><%= booking['duration']%></td>
-          <td><%= booking['first_name']%></td>
-          <td><%= booking['last_name']%></td>
+          <td width=200px><%= booking['name'] %></td>
+          <td width=150px><%= booking['start_date']%></td>
+          <td width=130px><%= booking['start_time']%></td>
+          <td width=100px><%= booking['duration']%></td>
+          <td width=250px><%= booking['last_name'] + ", " + booking['first_name']%></td>
         </tr>
         <% end %>
       </tbody>

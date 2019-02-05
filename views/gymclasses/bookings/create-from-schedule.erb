@@ -5,20 +5,24 @@
 </div>
 
 <div class="erb_wrapper">
-  <h2>Select Member To Book Into <%=@gymclass.name + " on " + @schedule.start_date + " at " + @schedule.start_time%></h2>
-  <div class="schedules">
+  <h1>Select Member To Book Into <%=@gymclass.name + " on " + @schedule.start_date + " at " + @schedule.start_time%></h1>
+  <div class="input_wrapper">
     <form method="post" action="/gymclasses/bookings/create-from-schedule">
-      <div class="schedule">
-        <label for="member_id:">Select Member:</label>
-        <select name="member_id" id="member_id" value="member_id">
+      <div class="input_row_wrapper">
+        <label class="data_label" for="member_id:">Select Member:</label>
+        <select class="data_box" name="member_id" id="member_id" value="member_id" autofocus required>
+          <option ></option>
           <% @members.each do |member| %>
           <%= pretty_name = member.last_name + ", " + member.first_name %>
           <option value="<%=member.id%>" <%= " disabled" if ((@schedule.start_time >= "17:00:00" && @schedule.start_time <= "20:00:00") || (@schedule.start_time >= "07:00:00" && @schedule.start_time <= "09:00:00")) && !member.premium %>><%=pretty_name%></option>
           <%end%>
         </select>
-        <input type="text" name="schedule_id" id="schedule_id" value="<%= @schedule.id %>" hidden/>
       </div>
-      <input type="submit" value="Book"/>
+      <input type="text" name="schedule_id" id="schedule_id" value="<%= @schedule.id %>" hidden/>
+      <div class="button_wrapper">
+        <input type="submit" value="Book"/>
+      </div>
+
     </form>
   </div>
 </div>

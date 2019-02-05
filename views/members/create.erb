@@ -5,32 +5,54 @@
 </div>
 
 <div class="erb_wrapper">
-  <h2>Create New Member</h2>
-  <div class="members">
+  <h1> Create New Member </h1>
+  <div class="input_wrapper">
     <form method="post" action="/members">
-      <div class="member">
-        <label for="first-name">First Name:</label>
-        <input type="text" name="first_name" id="first-name"/>
-        <label for="last-name">Last Name:</label>
-        <input type="text" name="last_name" id="last-name"/>
-        <label for="premium">Premium:</label>
-        <input type="checkbox" name="premium" id="premium"/>
-        <label for="address_line_1">Address Line 1:</label>
-        <input type="text" name="address_line_1" id="address_line_1"/>
-        <label for="address_line_2">Address Line 2:</label>
-        <input type="text" name="address_line_2" id="address_line_2"/>
-        <label for="town">Town:</label>
-        <input type="text" name="town" id="town"/>
-        <label for="district">District:</label>
-        <input type="text" name="district" id="district"/>
-        <label for="post_code">Post Code:</label>
-        <input type="text" name="post_code" id="post_code"/>
-        <label for="telephone">Telephone #:</label>
-        <input type="text" name="telephone" id="telephone"/>
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="first-name">First Name:</label>
+        <input class="data_box" type="text" name="first_name" id="first-name"/>
       </div>
-      <input type="submit" value="Create Member"/>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="last-name">Last Name:</label>
+        <input class="data_box" type="text" name="last_name" id="last-name"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="premium">Premium:</label>
+        <div class="checkbox">
+          <input type="checkbox" name="premium" id="premium"/>
+        </div>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="address_line_1">Address Line 1:</label>
+        <input class="data_box" type="text" name="address_line_1" id="address_line_1"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="address_line_2">Address Line 2:</label>
+        <input class="data_box" type="text" name="address_line_2" id="address_line_2"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="town">Town:</label>
+        <input class="data_box" type="text" name="town" id="town"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="district">District:</label>
+        <input class="data_box" type="text" name="district" id="district"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="post_code">Post Code:</label>
+        <input class="data_box" type="text" name="post_code" id="post_code"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="telephone">Telephone #:</label>
+        <input class="data_box" type="text" name="telephone" id="telephone"/>
+      </div>
+      <div class="input_row_wrapper">
+        <label class="data_label" for="email">Email:</label>
+        <input class="data_box" type="text" name="email" id="email"/>
+      </div>
+      <div class="button_wrapper">
+        <input class="button" type="submit" value="Create Member"/>
+      </div>
     </form>
   </div>
 </div>
