@@ -49,7 +49,6 @@ class Booking
       WHERE schedule_id = $1;"
     values = [@schedule_id]
     booking_count = SQLRunner.execute(sql, values).first['bookings'].to_i
-    binding.pry
     return booking_count
   end
 
