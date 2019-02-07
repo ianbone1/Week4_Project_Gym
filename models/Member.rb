@@ -56,6 +56,13 @@ class Member
     SQLRunner.execute(sql)
   end
 
+#find member by ID
+#SELECT FROM MEMBERS TABLE WHERE
+#   THE ID IS EQUAL TO THE ID PASSED TO METHOD
+#Take the first and only element returned and create
+#   a Member Object from it
+#Return the Member Object
+
   def self.find_by_id(the_id)
     sql = "SELECT members.* FROM members WHERE id = $1;"
     values = [the_id]
